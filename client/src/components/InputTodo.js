@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { Button, Form } from "react-bootstrap";
-import { API_URL } from "../config";
+import { useState } from "react";
 
 const InputTodo = () => {
   const [description, setDescription] = useState("");
@@ -10,7 +8,7 @@ const InputTodo = () => {
     try {
       const body = { description };
 
-      const response = await fetch(API_URL + "/todos", {
+      const response = await fetch("/todos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import { API_URL } from "../config";
 
 const EditTodo = ({ todo }) => {
   const [show, setShow] = useState(false);
@@ -15,7 +14,7 @@ const EditTodo = ({ todo }) => {
     e.preventDefault();
     try {
       const body = { description };
-      const response = await fetch(API_URL + `/todos/${todo.id}`, {
+      const response = await fetch(`/todos/${todo.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
